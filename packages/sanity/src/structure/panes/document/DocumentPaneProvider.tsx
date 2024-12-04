@@ -74,7 +74,7 @@ import {usePreviewUrl} from './usePreviewUrl'
  */
 // eslint-disable-next-line complexity, max-statements
 export const DocumentPaneProvider = memo((props: DocumentPaneProviderProps) => {
-  const {children, index, pane, paneKey, onFocusPath} = props
+  const {children, index, pane, paneKey, onFocusPath, perspectiveOverride} = props
   const schema = useSchema()
   const templates = useTemplates()
   const {setDocumentMeta} = useCopyPaste()
@@ -104,7 +104,9 @@ export const DocumentPaneProvider = memo((props: DocumentPaneProviderProps) => {
   const documentId = getPublishedId(documentIdRaw)
   const documentType = options.type
   const params = useUnique(paneRouter.params) || EMPTY_PARAMS
-  const {selectedPerspectiveName, selectedReleaseId, selectedPerspective} = usePerspective()
+  const {selectedPerspectiveName, selectedReleaseId, selectedPerspective} = usePerspective({
+    perspectiveOverride,
+  })
 
   /* Version and the global perspective should match.
    * If user clicks on add document, and then switches to another version, he should click again on create document.
