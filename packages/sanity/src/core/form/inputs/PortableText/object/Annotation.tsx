@@ -248,7 +248,7 @@ export function Annotation(props: AnnotationProps): ReactNode {
   )
 }
 
-export const DefaultAnnotationComponent = (props: BlockAnnotationProps) => {
+export const DefaultAnnotationComponent = (props: BlockAnnotationProps): ReactElement => {
   const {
     __unstable_floatingBoundary: floatingBoundary,
     __unstable_referenceBoundary: referenceBoundary,
@@ -259,8 +259,8 @@ export const DefaultAnnotationComponent = (props: BlockAnnotationProps) => {
     onRemove,
     open,
     readOnly,
-    selected,
     schemaType,
+    selected,
     textElement,
     validation,
   } = props
@@ -271,6 +271,7 @@ export const DefaultAnnotationComponent = (props: BlockAnnotationProps) => {
   const isReady = Boolean(children)
 
   const {t} = useTranslation()
+
   const toneKey = useMemo(() => {
     if (hasError) {
       return 'critical'
@@ -301,11 +302,11 @@ export const DefaultAnnotationComponent = (props: BlockAnnotationProps) => {
         <AnnotationToolbarPopover
           annotationOpen={open}
           floatingBoundary={floatingBoundary}
-          onOpen={onOpen}
-          onRemove={onRemove}
+          onOpenAnnotation={onOpen}
+          onRemoveAnnotation={onRemove}
           referenceBoundary={referenceBoundary}
           referenceElement={referenceElement}
-          selected={selected}
+          annotationTextSelected={selected}
           title={
             schemaType.i18nTitleKey
               ? t(schemaType.i18nTitleKey)
