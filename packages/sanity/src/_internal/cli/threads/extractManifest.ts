@@ -3,6 +3,7 @@ import {isMainThread, parentPort, workerData as _workerData} from 'node:worker_t
 import {extractCreateWorkspaceManifest} from '../../manifest/extractWorkspaceManifest'
 import {getStudioWorkspaces} from '../util/getStudioWorkspaces'
 import {mockBrowserEnvironment} from '../util/mockBrowserEnvironment'
+import {withEnvTrace} from '../debug'
 
 /** @internal */
 export interface ExtractManifestWorkerData {
@@ -30,4 +31,4 @@ async function main() {
   }
 }
 
-main()
+withEnvTrace('EXTRACT_MANIFEST', main)

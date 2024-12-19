@@ -305,12 +305,14 @@
     "rxjs-etc": "^10.6.2",
     "styled-components": "^6.1.13",
     "swr": "2.2.5",
+    "v8-profiler-next": "^1.10.0",
     "vitest": "2.1.1"
   },
   "peerDependencies": {
     "react": "^18 || ^19.0.0",
     "react-dom": "^18 || ^19.0.0",
-    "styled-components": "^6.1"
+    "styled-components": "^6.1",
+    "v8-profiler-next": "^1.10.0"
   },
   "engines": {
     "node": ">=18"
